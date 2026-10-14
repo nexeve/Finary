@@ -11,27 +11,10 @@ from database import get_transactions_count
 def render_sidebar(active_provider_name: str, budget_state=None) -> str:
     with st.sidebar:
         # App Branding Header
-        st.markdown(f"""
-        <div style="padding: 0.25rem 0 1.25rem 0; border-bottom: 1px solid #E2E8F0; margin-bottom: 1.25rem;">
-            <div style="font-size: 1.45rem; font-weight: 800; letter-spacing: -0.03em; color: #0F172A; display: flex; align-items: center; gap: 0.45rem;">
-                <span style="color: #4F46E5; font-size: 1.25rem;">✦</span> Finary
-            </div>
-            <div style="font-size: 0.78rem; color: #475569; margin-top: 0.2rem; font-weight: 500;">
-                AI Personal Finance Co-Pilot
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f"""<div style="padding: 0.25rem 0 1.25rem 0; border-bottom: 1px solid #E2E8F0; margin-bottom: 1.25rem;"><div style="font-size: 1.45rem; font-weight: 800; letter-spacing: -0.03em; color: #0F172A; display: flex; align-items: center; gap: 0.45rem;"><span style="color: #4F46E5; font-size: 1.25rem;">✦</span> Finary</div><div style="font-size: 0.78rem; color: #1E293B; margin-top: 0.2rem; font-weight: 500;">AI Personal Finance Co-Pilot</div></div>""", unsafe_allow_html=True)
 
         # AI Provider Badge
-        st.markdown(f"""
-        <div style="background-color: var(--bg-surface-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.55rem 0.75rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 600;">Engine</span>
-            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 0.4rem;">
-                <span style="height: 6px; width: 6px; border-radius: 50%; background-color: var(--color-success); display: inline-block;"></span>
-                {active_provider_name}
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f"""<div style="background-color: var(--bg-surface-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.55rem 0.75rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;"><span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; font-weight: 600;">Engine</span><div style="font-size: 0.82rem; font-weight: 700; color: #0F172A; display: flex; align-items: center; gap: 0.4rem;"><span style="height: 6px; width: 6px; border-radius: 50%; background-color: var(--color-success); display: inline-block;"></span>{active_provider_name}</div></div>""", unsafe_allow_html=True)
 
         # Navigation Options
         nav_options = [
@@ -67,11 +50,7 @@ def render_sidebar(active_provider_name: str, budget_state=None) -> str:
         st.markdown("<div style='height: 1.5rem;'></div>", unsafe_allow_html=True)
 
         # Quick Live Demo Simulation Widget
-        st.markdown("""
-        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-weight: 700; margin-bottom: 0.5rem;">
-            Interactive Sandbox
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("""<div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: #64748B; font-weight: 700; margin-bottom: 0.5rem;">Interactive Sandbox</div>""", unsafe_allow_html=True)
         
         tx_count = get_transactions_count()
         if tx_count > 0 and budget_state:
@@ -99,11 +78,6 @@ def render_sidebar(active_provider_name: str, budget_state=None) -> str:
                     st.toast("⚡ Added ₹400 Swiggy overspend! Budget recalculated.", icon="🎯")
                     st.rerun()
 
-        st.markdown("""
-        <div style="font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 2rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
-            RBI Account Aggregator Protocol<br>
-            <span style="font-weight: 600;">Finary Pacing Engine v1.0</span>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("""<div style="font-size: 0.72rem; color: #64748B; text-align: center; margin-top: 2rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">RBI Account Aggregator Protocol<br><span style="font-weight: 600; color: #475569;">Finary Pacing Engine v1.0</span></div>""", unsafe_allow_html=True)
 
         return selected_page

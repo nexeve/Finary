@@ -68,32 +68,21 @@ def render_page_header(
     breadcrumb: str = "Finary"
 ):
     """Renders a consistent, calm top-level page header with breadcrumb and status."""
-    badge_html = ""
+    # Render the main header content
+    st.markdown(f"<div style='margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;'>", unsafe_allow_html=True)
+    
+    st.markdown(f"<div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; margin-bottom: 0.2rem;'>{breadcrumb} · {title}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size: 1.75rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.025em; line-height: 1.2;'>{title}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.25rem;'>{subtitle}</div>", unsafe_allow_html=True)
+    st.markdown(f"</div>", unsafe_allow_html=True)
+    
+    # Render badge if provided
     if badge_text:
         type_class = f"status-{badge_type.lower().replace(' ', '-')}"
-        badge_html = f"""
-        <div class="status-badge {type_class}">
-            <span style="height: 6px; width: 6px; border-radius: 50%; background-color: currentColor; display: inline-block;"></span>
-            {badge_text}
-        </div>
-        """
-
-    st.markdown(f"""
-    <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
-        <div>
-            <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; margin-bottom: 0.2rem;">
-                {breadcrumb} · {title}
-            </div>
-            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.025em; line-height: 1.2;">
-                {title}
-            </div>
-            <div style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.25rem;">
-                {subtitle}
-            </div>
-        </div>
-        {badge_html}
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown(f"<div class='status-badge {type_class}'><span style='height: 6px; width: 6px; border-radius: 50%; background-color: currentColor; display: inline-block;'></span>{badge_text}</div>", unsafe_allow_html=True)
+    
+    st.markdown(f"</div>", unsafe_allow_html=True)
 
 
 def render_kpi_card(

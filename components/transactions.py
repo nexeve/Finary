@@ -20,7 +20,7 @@ def render_transactions_page(ai_provider):
         title="Transaction Ledger",
         subtitle="AI-classified statement transactions with automatic category, essential tag, and impulse risk detection",
         badge_text="LIVE LEDGER",
-        badge_type="primary",
+        badge_type="info",
         breadcrumb="Finary"
     )
 

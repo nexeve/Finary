@@ -44,7 +44,7 @@ def render_spending_analysis_page(ai_provider):
         title="Spending Intelligence & Analytics",
         subtitle=f"Tracking outflows across {days_elapsed} active days · {metrics['transaction_count']} verified transactions",
         badge_text="ANALYTICS ENGINE",
-        badge_type="primary",
+        badge_type="info",
         breadcrumb="Finary"
     )
     

@@ -35,11 +35,20 @@ def render_budget_planner_page():
 
     # 1. Page Header with Status Badge
     status_label = budget_state.status if budget_state else "BASELINE CONFIGURED"
+    # Map status label to CSS class
+    badge_type_map = {
+        "ON TRACK": "on-track",
+        "SLIGHTLY OVER": "slightly-over",
+        "AT RISK": "at-risk",
+        "CRITICAL": "critical",
+        "BASELINE CONFIGURED": "baseline-configured"
+    }
+    badge_type = badge_type_map.get(status_label, "info")
     render_page_header(
         title="Adaptive Budget Architecture",
         subtitle="Establish monthly parameters. The engine continuously smooths daily spending allowances to protect savings.",
         badge_text=status_label,
-        badge_type=status_label,
+        badge_type=badge_type,
         breadcrumb="Finary"
     )
 

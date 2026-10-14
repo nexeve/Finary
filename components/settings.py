@@ -19,7 +19,7 @@ def render_settings_page(current_provider_name: str):
         title="Settings & System Architecture",
         subtitle="Configure the AI inference layer, inspect API telemetry, and manage demo ledger data",
         badge_text="SYSTEM HEALTHY",
-        badge_type="primary",
+        badge_type="info",
         breadcrumb="Finary"
     )
 

@@ -62,11 +62,19 @@ def render_dashboard(ai_provider):
     )
 
     # 1. Consistent Application Header with Status Badge
+    # Map status label to CSS class
+    badge_type_map = {
+        "ON TRACK": "on-track",
+        "SLIGHTLY OVER": "slightly-over",
+        "AT RISK": "at-risk",
+        "CRITICAL": "critical"
+    }
+    badge_type = badge_type_map.get(state.status, "info")
     render_page_header(
         title="Dashboard",
         subtitle=f"Here's how your money is looking · Statement Day {days_elapsed} of {budget_cfg.days_in_month}",
         badge_text=state.status,
-        badge_type=state.status,
+        badge_type=badge_type,
         breadcrumb="Finary"
     )
 

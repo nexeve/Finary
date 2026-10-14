@@ -218,22 +218,32 @@ def get_app_css(theme: dict = THEME) -> str:
         border: 1px solid transparent !important;
         display: flex !important;
         align-items: center !important;
+        color: #0F172A !important;
     }}
     div[data-testid="stSidebar"] div[role="radiogroup"] > label:hover {{
         background-color: var(--bg-surface-subtle) !important;
         border-color: var(--border-subtle) !important;
+        color: #0F172A !important;
     }}
     /* Hide circular radio input */
     div[data-testid="stSidebar"] div[role="radiogroup"] > label > div:first-child {{
         display: none !important;
     }}
-    /* Nav label text */
-    div[data-testid="stSidebar"] div[role="radiogroup"] > label > div[data-testid="stMarkdownContainer"] p {{
+    /* Nav label text - all possible selectors */
+    div[data-testid="stSidebar"] div[role="radiogroup"] > label > div[data-testid="stMarkdownContainer"] p,
+    div[data-testid="stSidebar"] div[role="radiogroup"] > label > div[data-testid="stMarkdownContainer"],
+    div[data-testid="stSidebar"] div[role="radiogroup"] > label > div,
+    div[data-testid="stSidebar"] div[role="radiogroup"] > label span,
+    div[data-testid="stSidebar"] div[role="radiogroup"] > label {{
         font-size: 0.88rem !important;
         font-weight: 500 !important;
-        color: #334155 !important;
+        color: #0F172A !important;
         margin: 0 !important;
         letter-spacing: -0.01em !important;
+    }}
+    /* Fix any inherited text color issues in sidebar */
+    section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] * {{
+        color: #0F172A !important;
     }}
     /* Active Nav Item */
     div[data-testid="stSidebar"] div[role="radiogroup"] > label[data-checked="true"],
@@ -362,6 +372,21 @@ def get_app_css(theme: dict = THEME) -> str:
         font-weight: 700;
         letter-spacing: 0.05em;
         text-transform: uppercase;
+    }}
+    .status-primary {{
+        background-color: var(--color-primary-subtle);
+        color: var(--color-primary);
+        border: 1px solid rgba(79, 70, 229, 0.25);
+    }}
+    .status-info {{
+        background-color: var(--color-info-subtle);
+        color: var(--color-info);
+        border: 1px solid rgba(2, 132, 199, 0.25);
+    }}
+    .status-baseline-configured {{
+        background-color: var(--color-info-subtle);
+        color: var(--color-info);
+        border: 1px solid rgba(2, 132, 199, 0.25);
     }}
     .status-on-track {{
         background-color: var(--color-success-subtle);

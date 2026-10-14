@@ -47,7 +47,7 @@ def render_spend_coach_page(ai_provider):
         title="AI Spend Coach",
         subtitle=f"Context-aware financial intelligence · Actively pacing across {state.days_remaining} remaining days",
         badge_text="CO-PILOT ACTIVE",
-        badge_type="primary",
+        badge_type="info",
         breadcrumb="Finary"
     )
 
